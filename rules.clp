@@ -48,8 +48,8 @@
     (ryad_klassov ?k)
     (test (<= ?k (* 0.8 ?p)))
     (not (and (ryad_klassov ?k2)
-              (test (< ?k2 ?k))
-              (test (<= ?k2 (* 0.8 ?p))))
+              (test (> ?k2 ?k))
+              (test (<= ?k2 (* 0.8 ?p)))))
 =>
     (assert (klass ?k))              
 )
@@ -163,7 +163,7 @@
 =>
     (switch ?n
         (case PN then (bind ?tekst "предварительно напряженные конструкции (ПН)"))
-        (case ZB then (bind ?tekst "обычный железобетон (ZB)"))
+        (case ZB then (bind ?tekst "обычный железобетон (ЖБ)"))
         (case BET then (bind ?tekst "бетонные конструкции (без арматуры)"))
     )
     (printout t "Бетон подходит для " ?tekst "!" crlf)
